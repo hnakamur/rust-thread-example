@@ -12,12 +12,12 @@ impl MyCounter {
         }
     }
 
-    fn increase(self: Arc<Self>, increment: i32) {
+    fn increase(&self, increment: i32) {
         let mut num = self.counter.lock().unwrap();
         *num += increment;
     }
 
-    fn value(self: Arc<Self>) -> i32 {
+    fn value(&self) -> i32 {
         *self.counter.lock().unwrap()
     }
 }
